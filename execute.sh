@@ -17,7 +17,7 @@ SetupEnv(){
     export G4_PATH_TOP=${PWD}
     touch ${G4_PATH_TOP}/setG4Env.sh
     cat /dev/null > ${G4_PATH_TOP}/setG4Env.sh
-    echo 'export LD_LIBRARY_PATH='${G4_PATH_TOP}'/lib-clhep:'${G4_PATH_TOP}'/lib_G4:${LD_LIBRARY_PATH}' >> ${G4_PATH_TOP}/setG4Env.sh
+    echo 'export LD_LIBRARY_PATH='${G4_PATH_TOP}'/lib_clhep:'${G4_PATH_TOP}'/lib_G4:${LD_LIBRARY_PATH}' >> ${G4_PATH_TOP}/setG4Env.sh
     echo 'export G4LEVELGAMMADATA='${G4_PATH_TOP}'/data-g4/PhotonEvaporation5.7' >> ${G4_PATH_TOP}/setG4Env.sh
     echo 'export G4LEDATA='${G4_PATH_TOP}'/data-g4/G4EMLOW8.2' >> ${G4_PATH_TOP}/setG4Env.sh
     echo 'export G4NEUTRONHPDATA='${G4_PATH_TOP}'/data-g4/G4NDL4.7' >> ${G4_PATH_TOP}/setG4Env.sh
