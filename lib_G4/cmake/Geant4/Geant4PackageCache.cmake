@@ -21,7 +21,19 @@ geant4_set_and_check_package_variable(CLHEP_DIR "/home/g4test/Geant4.11.1.p01/in
 geant4_set_and_check_package_variable(EXPAT_INCLUDE_DIR "/usr/include" PATH "Path to a file.")
 geant4_set_and_check_package_variable(EXPAT_LIBRARY "/usr/lib/x86_64-linux-gnu/libexpat.so" FILEPATH "Path to a library.")
 
+# ZLIB Build Time Settings
+geant4_set_and_check_package_variable(ZLIB_INCLUDE_DIR "/usr/include" PATH "Path to a file.")
+geant4_set_and_check_package_variable(ZLIB_LIBRARY_RELEASE "/usr/lib/x86_64-linux-gnu/libz.so" FILEPATH "Path to a library.")
+
 # TBB Build Time Settings
+
+# XercesC Build Time Settings
+geant4_set_and_check_package_variable(XercesC_INCLUDE_DIR "/usr/include" PATH "Xerces-C++ include directory")
+geant4_set_and_check_package_variable(XercesC_LIBRARY_RELEASE "/usr/lib/x86_64-linux-gnu/libxerces-c.so" FILEPATH "Xerces-C++ libraries (release)")
+
+# Inventor Build Time Settings
+geant4_set_and_check_package_variable(Coin_DIR "/home/g4test/coin3D/install/lib/cmake/Coin-4.0.0" PATH "The directory containing a CMake configuration file for Coin.")
+geant4_set_and_check_package_variable(SoQt_DIR "/usr/lib/x86_64-linux-gnu/cmake/SoQt-1.6.0" PATH "The directory containing a CMake configuration file for SoQt.")
 
 # Qt5 Build Time Settings
 geant4_set_and_check_package_variable(Qt5Core_DIR "/usr/lib/x86_64-linux-gnu/cmake/Qt5Core" PATH "The directory containing a CMake configuration file for Qt5Core.")
@@ -33,3 +45,21 @@ geant4_set_and_check_package_variable(Qt5PrintSupport_DIR "/usr/lib/x86_64-linux
 # OpenGL Build Time Settings
 geant4_set_and_check_package_variable(OPENGL_INCLUDE_DIR "/usr/include" PATH "Path to a file.")
 geant4_set_and_check_package_variable(OPENGL_gl_LIBRARY "/usr/lib/x86_64-linux-gnu/libGL.so" FILEPATH "Path to a library.")
+
+# X11 Build Time Settings
+geant4_set_and_check_package_variable(X11_X11_INCLUDE_PATH "/usr/include" PATH "Path to a file.")
+geant4_set_and_check_package_variable(X11_X11_LIB "/usr/lib/x86_64-linux-gnu/libX11.so" FILEPATH "Path to a library.")
+geant4_set_and_check_package_variable(X11_ICE_INCLUDE_PATH "/usr/include" PATH "Path to a file.")
+geant4_set_and_check_package_variable(X11_ICE_LIB "/usr/lib/x86_64-linux-gnu/libICE.so" FILEPATH "Path to a library.")
+geant4_set_and_check_package_variable(X11_SM_INCLUDE_PATH "/usr/include" PATH "Path to a file.")
+geant4_set_and_check_package_variable(X11_SM_LIB "/usr/lib/x86_64-linux-gnu/libSM.so" FILEPATH "Path to a library.")
+geant4_set_and_check_package_variable(X11_Xext_INCLUDE_PATH "/usr/include" PATH "Path to a file.")
+geant4_set_and_check_package_variable(X11_Xext_LIB "/usr/lib/x86_64-linux-gnu/libXext.so" FILEPATH "Path to a library.")
+geant4_set_and_check_package_variable(X11_Xmu_INCLUDE_PATH "/usr/include" PATH "Path to a file.")
+geant4_set_and_check_package_variable(X11_Xmu_LIB "/usr/lib/x86_64-linux-gnu/libXmu.so" FILEPATH "Path to a library.")
+geant4_set_and_check_package_variable(X11_Xt_INCLUDE_PATH "/usr/include" PATH "Path to a file.")
+geant4_set_and_check_package_variable(X11_Xt_LIB "/usr/lib/x86_64-linux-gnu/libXt.so" FILEPATH "Path to a library.")
+
+# Motif Build Time Settings
+geant4_set_and_check_package_variable(MOTIF_INCLUDE_DIR "/usr/include" PATH "Path to a file.")
+geant4_set_and_check_package_variable(MOTIF_LIBRARIES "/usr/lib/x86_64-linux-gnu/libXm.so" FILEPATH "Path to a library.")

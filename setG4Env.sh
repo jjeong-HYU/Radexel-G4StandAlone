@@ -1,0 +1,12 @@
+export LD_LIBRARY_PATH=/home/g4test/git_g4_11_1_p01_upload/lib_clhep:/home/g4test/git_g4_11_1_p01_upload/lib_G4:/home/g4test/git_g4_11_1_p01_upload/lib_coin3D:${LD_LIBRARY_PATH}
+export G4LEVELGAMMADATA=/home/g4test/git_g4_11_1_p01_upload/data-g4/PhotonEvaporation5.7
+export G4LEDATA=/home/g4test/git_g4_11_1_p01_upload/data-g4/G4EMLOW8.2
+export G4NEUTRONHPDATA=/home/g4test/git_g4_11_1_p01_upload/data-g4/G4NDL4.7
+export G4ENSDFSTATEDATA=/home/g4test/git_g4_11_1_p01_upload/data-g4/G4ENSDFSTATE2.3
+export G4RADIOACTIVEDATA=/home/g4test/git_g4_11_1_p01_upload/data-g4/RadioactiveDecay5.6
+export G4ABLADATA=/home/g4test/git_g4_11_1_p01_upload/data-g4/G4ABLA3.1
+export G4PIIDATA=/home/g4test/git_g4_11_1_p01_upload/data-g4/G4PII1.3
+export G4PARTICLEXSDATA=/home/g4test/git_g4_11_1_p01_upload/data-g4/G4PARTICLEXS4.0
+export G4SAIDXSDATA=/home/g4test/git_g4_11_1_p01_upload/data-g4/G4SAIDDATA2.0
+export G4REALSURFACEDATA=/home/g4test/git_g4_11_1_p01_upload/data-g4/RealSurface2.2
+export G4INCLDATA=/home/g4test/git_g4_11_1_p01_upload/data-g4/G4INCL1.0

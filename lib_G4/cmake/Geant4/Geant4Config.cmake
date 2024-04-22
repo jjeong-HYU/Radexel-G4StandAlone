@@ -269,9 +269,9 @@ if(NOT Geant4_builtin_expat_FOUND)
   include("${CMAKE_CURRENT_LIST_DIR}/G4EXPATShim.cmake")
 endif()
 
-set(Geant4_builtin_zlib_FOUND TRUE)
+set(Geant4_builtin_zlib_FOUND )
 if(NOT Geant4_builtin_zlib_FOUND)
-  find_dependency(ZLIB )
+  find_dependency(ZLIB 1.2.11)
 endif()
 
 # PTL/TBB
@@ -306,9 +306,9 @@ if(Geant4_multithreaded_FOUND)
 endif()
 
 # - GDML
-set(Geant4_gdml_FOUND OFF)
+set(Geant4_gdml_FOUND ON)
 if(Geant4_gdml_FOUND)
-  find_dependency(XercesC )
+  find_dependency(XercesC 3.2.2)
 endif()
 
 # - Smart track stack
@@ -348,7 +348,7 @@ endif()
 # - Freetype
 set(Geant4_freetype_FOUND OFF)
 if(Geant4_freetype_FOUND)
-  find_dependency(Freetype )
+  find_dependency(Freetype 2.10.1)
   include("${CMAKE_CURRENT_LIST_DIR}/G4FreetypeShim.cmake")
 endif()
 
@@ -395,7 +395,7 @@ endif()
 # Components which requires slightly more complex setup
 #
 # - Visualization : RayTracerX
-set(Geant4_vis_raytracer_x11_FOUND OFF)
+set(Geant4_vis_raytracer_x11_FOUND ON)
 if(Geant4_vis_raytracer_x11_FOUND)
   find_dependency(X11)
   include("${CMAKE_CURRENT_LIST_DIR}/G4X11Shim.cmake")
@@ -439,7 +439,7 @@ if(Geant4_qt_FOUND)
 endif()
 
 # - Motif (UI and Vis!)
-set(Geant4_motif_FOUND OFF)
+set(Geant4_motif_FOUND ON)
 if(Geant4_motif_FOUND)
   find_dependency(X11)
   include("${CMAKE_CURRENT_LIST_DIR}/G4X11Shim.cmake")
@@ -462,7 +462,7 @@ if(Geant4_motif_FOUND)
 endif()
 
 # - OpenGL X11
-set(Geant4_vis_opengl_x11_FOUND OFF)
+set(Geant4_vis_opengl_x11_FOUND ON)
 if(Geant4_vis_opengl_x11_FOUND)
   find_dependency(X11)
   include("${CMAKE_CURRENT_LIST_DIR}/G4X11Shim.cmake")
@@ -489,8 +489,8 @@ if(Geant4_vis_opengl_win32_FOUND)
 endif()
 
 # - OpenInventor
-set(Geant4_vis_openinventor_FOUND OFF)
-set(Geant4_vis_openinventor_qt_FOUND OFF)
+set(Geant4_vis_openinventor_FOUND ON)
+set(Geant4_vis_openinventor_qt_FOUND ON)
 if(Geant4_vis_openinventor_FOUND)
   find_dependency(Coin)
 
@@ -524,7 +524,7 @@ if(Geant4_vis_openinventor_FOUND)
 endif()
 
 # - ToolsSG X11/GLES
-set(Geant4_vis_toolssg_x11_gles_FOUND OFF)
+set(Geant4_vis_toolssg_x11_gles_FOUND ON)
 if(Geant4_vis_toolssg_x11_gles_FOUND)
   find_dependency(X11)
   include("${CMAKE_CURRENT_LIST_DIR}/G4X11Shim.cmake")
@@ -549,7 +549,7 @@ if(Geant4_vis_toolssg_windows_gles_FOUND)
 endif()
 
 # - ToolsSG Xt/GLES
-set(Geant4_vis_toolssg_xt_gles_FOUND OFF)
+set(Geant4_vis_toolssg_xt_gles_FOUND ON)
 if(Geant4_vis_toolssg_xt_gles_FOUND)
   find_dependency(X11)
   include("${CMAKE_CURRENT_LIST_DIR}/G4X11Shim.cmake")
@@ -727,7 +727,7 @@ list(APPEND _geant4_internal_libraries
   )
 
 # - Any externals built by Geant4
-foreach(_extlib G4zlib;G4ptl)
+foreach(_extlib G4ptl)
   list(APPEND
     _geant4_internal_libraries
     Geant4::${_extlib}${_geant4_lib_use_suffix}

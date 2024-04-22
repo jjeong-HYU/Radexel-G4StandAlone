@@ -16,7 +16,7 @@ set(CMAKE_IMPORT_FILE_VERSION 1)
 set(_targetsDefined)
 set(_targetsNotDefined)
 set(_expectedTargets)
-foreach(_expectedTarget Geant4::G4zlib Geant4::G4tools Geant4::G4ptl Geant4::G4analysis Geant4::G4digits_hits Geant4::G4error_propagation Geant4::G4event Geant4::G4geometry Geant4::G4global Geant4::G4graphics_reps Geant4::G4intercoms Geant4::G4interfaces Geant4::G4materials Geant4::G4parmodels Geant4::G4particles Geant4::G4persistency Geant4::G4physicslists Geant4::G4processes Geant4::G4readout Geant4::G4run Geant4::G4track Geant4::G4tracking Geant4::G4FR Geant4::G4visHepRep Geant4::G4RayTracer Geant4::G4Tree Geant4::G4VRML Geant4::G4GMocren Geant4::G4vis_management Geant4::G4modeling Geant4::G4ToolsSG Geant4::G4OpenGL)
+foreach(_expectedTarget Geant4::G4tools Geant4::G4ptl Geant4::G4analysis Geant4::G4digits_hits Geant4::G4error_propagation Geant4::G4event Geant4::G4geometry Geant4::G4global Geant4::G4graphics_reps Geant4::G4intercoms Geant4::G4interfaces Geant4::G4materials Geant4::G4parmodels Geant4::G4particles Geant4::G4persistency Geant4::G4physicslists Geant4::G4processes Geant4::G4readout Geant4::G4run Geant4::G4track Geant4::G4tracking Geant4::G4FR Geant4::G4visHepRep Geant4::G4RayTracer Geant4::G4Tree Geant4::G4VRML Geant4::G4GMocren Geant4::G4vis_management Geant4::G4modeling Geant4::G4ToolsSG Geant4::G4OpenGL Geant4::G4OpenInventor)
   list(APPEND _expectedTargets ${_expectedTarget})
   if(NOT TARGET ${_expectedTarget})
     list(APPEND _targetsNotDefined ${_expectedTarget})
@@ -50,15 +50,6 @@ if(_IMPORT_PREFIX STREQUAL "/")
   set(_IMPORT_PREFIX "")
 endif()
 
-# Create imported target Geant4::G4zlib
-add_library(Geant4::G4zlib SHARED IMPORTED)
-
-set_target_properties(Geant4::G4zlib PROPERTIES
-  INTERFACE_COMPILE_DEFINITIONS "G4LIB_BUILD_DLL"
-  INTERFACE_COMPILE_FEATURES "cxx_std_17"
-  INTERFACE_INCLUDE_DIRECTORIES "${_IMPORT_PREFIX}/include/Geant4"
-)
-
 # Create imported target Geant4::G4tools
 add_library(Geant4::G4tools INTERFACE IMPORTED)
 
@@ -82,7 +73,7 @@ set_target_properties(Geant4::G4analysis PROPERTIES
   INTERFACE_COMPILE_DEFINITIONS "G4LIB_BUILD_DLL"
   INTERFACE_COMPILE_FEATURES "cxx_std_17"
   INTERFACE_INCLUDE_DIRECTORIES "${_IMPORT_PREFIX}/include/Geant4"
-  INTERFACE_LINK_LIBRARIES "EXPAT::EXPAT;Geant4::G4global;Geant4::G4intercoms;Geant4::G4tools;Geant4::G4zlib"
+  INTERFACE_LINK_LIBRARIES "EXPAT::EXPAT;Geant4::G4global;Geant4::G4intercoms;Geant4::G4tools;ZLIB::ZLIB"
 )
 
 # Create imported target Geant4::G4digits_hits
@@ -159,10 +150,10 @@ set_target_properties(Geant4::G4intercoms PROPERTIES
 add_library(Geant4::G4interfaces SHARED IMPORTED)
 
 set_target_properties(Geant4::G4interfaces PROPERTIES
-  INTERFACE_COMPILE_DEFINITIONS "G4LIB_BUILD_DLL"
+  INTERFACE_COMPILE_DEFINITIONS "G4LIB_BUILD_DLL;G4UI_BUILD_XM_SESSION"
   INTERFACE_COMPILE_FEATURES "cxx_std_17"
   INTERFACE_INCLUDE_DIRECTORIES "${_IMPORT_PREFIX}/include/Geant4"
-  INTERFACE_LINK_LIBRARIES "Geant4::G4global;Geant4::G4intercoms;Qt5::Core;Qt5::Gui;Qt5::Widgets"
+  INTERFACE_LINK_LIBRARIES "Geant4::G4global;Geant4::G4intercoms;Motif::Xm;Qt5::Core;Qt5::Gui;Qt5::Widgets;X11::ICE;X11::SM;X11::X11;X11::Xext;X11::Xmu;X11::Xt"
 )
 
 # Create imported target Geant4::G4materials
@@ -202,7 +193,7 @@ set_target_properties(Geant4::G4persistency PROPERTIES
   INTERFACE_COMPILE_DEFINITIONS "G4LIB_BUILD_DLL"
   INTERFACE_COMPILE_FEATURES "cxx_std_17"
   INTERFACE_INCLUDE_DIRECTORIES "${_IMPORT_PREFIX}/include/Geant4"
-  INTERFACE_LINK_LIBRARIES "Geant4::G4digits_hits;Geant4::G4event;Geant4::G4geometry;Geant4::G4global;Geant4::G4intercoms;Geant4::G4materials;Geant4::G4run"
+  INTERFACE_LINK_LIBRARIES "Geant4::G4digits_hits;Geant4::G4event;Geant4::G4geometry;Geant4::G4global;Geant4::G4intercoms;Geant4::G4materials;Geant4::G4run;XercesC::XercesC"
 )
 
 # Create imported target Geant4::G4physicslists
@@ -292,7 +283,7 @@ set_target_properties(Geant4::G4RayTracer PROPERTIES
   INTERFACE_COMPILE_DEFINITIONS "G4LIB_BUILD_DLL"
   INTERFACE_COMPILE_FEATURES "cxx_std_17"
   INTERFACE_INCLUDE_DIRECTORIES "${_IMPORT_PREFIX}/include/Geant4"
-  INTERFACE_LINK_LIBRARIES "Geant4::G4digits_hits;Geant4::G4global;Geant4::G4graphics_reps;Geant4::G4intercoms;Geant4::G4modeling;Geant4::G4run;Geant4::G4track;Geant4::G4tracking;Geant4::G4vis_management"
+  INTERFACE_LINK_LIBRARIES "Geant4::G4digits_hits;Geant4::G4global;Geant4::G4graphics_reps;Geant4::G4intercoms;Geant4::G4modeling;Geant4::G4run;Geant4::G4track;Geant4::G4tracking;Geant4::G4vis_management;X11::ICE;X11::SM;X11::X11;X11::Xext;X11::Xmu"
 )
 
 # Create imported target Geant4::G4Tree
@@ -352,7 +343,7 @@ set_target_properties(Geant4::G4ToolsSG PROPERTIES
   INTERFACE_COMPILE_DEFINITIONS "G4LIB_BUILD_DLL"
   INTERFACE_COMPILE_FEATURES "cxx_std_17"
   INTERFACE_INCLUDE_DIRECTORIES "${_IMPORT_PREFIX}/include/Geant4"
-  INTERFACE_LINK_LIBRARIES "Geant4::G4intercoms;Geant4::G4interfaces;Geant4::G4modeling;Geant4::G4tools;Geant4::G4vis_management;OpenGL::GL;Qt5::Gui;Qt5::OpenGL;Qt5::PrintSupport;Qt5::Widgets"
+  INTERFACE_LINK_LIBRARIES "Geant4::G4intercoms;Geant4::G4interfaces;Geant4::G4modeling;Geant4::G4tools;Geant4::G4vis_management;OpenGL::GL;Qt5::Gui;Qt5::OpenGL;Qt5::PrintSupport;Qt5::Widgets;X11::ICE;X11::SM;X11::X11;X11::Xext;X11::Xmu"
 )
 
 # Create imported target Geant4::G4OpenGL
@@ -362,7 +353,17 @@ set_target_properties(Geant4::G4OpenGL PROPERTIES
   INTERFACE_COMPILE_DEFINITIONS "G4LIB_BUILD_DLL"
   INTERFACE_COMPILE_FEATURES "cxx_std_17"
   INTERFACE_INCLUDE_DIRECTORIES "${_IMPORT_PREFIX}/include/Geant4"
-  INTERFACE_LINK_LIBRARIES "Geant4::G4global;Geant4::G4graphics_reps;Geant4::G4intercoms;Geant4::G4modeling;Geant4::G4vis_management;OpenGL::GL;Qt5::Gui;Qt5::OpenGL;Qt5::PrintSupport;Qt5::Widgets"
+  INTERFACE_LINK_LIBRARIES "Geant4::G4global;Geant4::G4graphics_reps;Geant4::G4intercoms;Geant4::G4modeling;Geant4::G4vis_management;Motif::Xm;OpenGL::GL;Qt5::Gui;Qt5::OpenGL;Qt5::PrintSupport;Qt5::Widgets;X11::ICE;X11::SM;X11::X11;X11::Xext;X11::Xmu"
+)
+
+# Create imported target Geant4::G4OpenInventor
+add_library(Geant4::G4OpenInventor SHARED IMPORTED)
+
+set_target_properties(Geant4::G4OpenInventor PROPERTIES
+  INTERFACE_COMPILE_DEFINITIONS "G4LIB_BUILD_DLL"
+  INTERFACE_COMPILE_FEATURES "cxx_std_17"
+  INTERFACE_INCLUDE_DIRECTORIES "${_IMPORT_PREFIX}/include/Geant4"
+  INTERFACE_LINK_LIBRARIES "Coin::Coin;Geant4::G4global;Geant4::G4graphics_reps;Geant4::G4intercoms;Geant4::G4interfaces;Geant4::G4modeling;Geant4::G4vis_management;OpenGL::GL;Qt5::Gui;Qt5::OpenGL;Qt5::PrintSupport;Qt5::Widgets;SoQt::SoQt"
 )
 
 if(CMAKE_VERSION VERSION_LESS 3.0.0)

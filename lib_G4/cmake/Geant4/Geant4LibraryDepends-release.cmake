@@ -5,16 +5,6 @@
 # Commands may need to know the format version.
 set(CMAKE_IMPORT_FILE_VERSION 1)
 
-# Import target "Geant4::G4zlib" for configuration "Release"
-set_property(TARGET Geant4::G4zlib APPEND PROPERTY IMPORTED_CONFIGURATIONS RELEASE)
-set_target_properties(Geant4::G4zlib PROPERTIES
-  IMPORTED_LOCATION_RELEASE "${_IMPORT_PREFIX}/lib/libG4zlib.so"
-  IMPORTED_SONAME_RELEASE "libG4zlib.so"
-  )
-
-list(APPEND _IMPORT_CHECK_TARGETS Geant4::G4zlib )
-list(APPEND _IMPORT_CHECK_FILES_FOR_Geant4::G4zlib "${_IMPORT_PREFIX}/lib/libG4zlib.so" )
-
 # Import target "Geant4::G4analysis" for configuration "Release"
 set_property(TARGET Geant4::G4analysis APPEND PROPERTY IMPORTED_CONFIGURATIONS RELEASE)
 set_target_properties(Geant4::G4analysis PROPERTIES
@@ -113,7 +103,6 @@ list(APPEND _IMPORT_CHECK_FILES_FOR_Geant4::G4interfaces "${_IMPORT_PREFIX}/lib/
 # Import target "Geant4::G4materials" for configuration "Release"
 set_property(TARGET Geant4::G4materials APPEND PROPERTY IMPORTED_CONFIGURATIONS RELEASE)
 set_target_properties(Geant4::G4materials PROPERTIES
-  IMPORTED_LINK_DEPENDENT_LIBRARIES_RELEASE "Geant4::G4zlib"
   IMPORTED_LOCATION_RELEASE "${_IMPORT_PREFIX}/lib/libG4materials.so"
   IMPORTED_SONAME_RELEASE "libG4materials.so"
   )
@@ -145,7 +134,7 @@ list(APPEND _IMPORT_CHECK_FILES_FOR_Geant4::G4particles "${_IMPORT_PREFIX}/lib/l
 # Import target "Geant4::G4persistency" for configuration "Release"
 set_property(TARGET Geant4::G4persistency APPEND PROPERTY IMPORTED_CONFIGURATIONS RELEASE)
 set_target_properties(Geant4::G4persistency PROPERTIES
-  IMPORTED_LINK_DEPENDENT_LIBRARIES_RELEASE "Geant4::G4graphics_reps"
+  IMPORTED_LINK_DEPENDENT_LIBRARIES_RELEASE "Geant4::G4graphics_reps;Geant4::G4particles;Geant4::G4processes;Geant4::G4track"
   IMPORTED_LOCATION_RELEASE "${_IMPORT_PREFIX}/lib/libG4persistency.so"
   IMPORTED_SONAME_RELEASE "libG4persistency.so"
   )
@@ -167,7 +156,7 @@ list(APPEND _IMPORT_CHECK_FILES_FOR_Geant4::G4physicslists "${_IMPORT_PREFIX}/li
 # Import target "Geant4::G4processes" for configuration "Release"
 set_property(TARGET Geant4::G4processes APPEND PROPERTY IMPORTED_CONFIGURATIONS RELEASE)
 set_target_properties(Geant4::G4processes PROPERTIES
-  IMPORTED_LINK_DEPENDENT_LIBRARIES_RELEASE "Geant4::G4analysis;Geant4::G4zlib"
+  IMPORTED_LINK_DEPENDENT_LIBRARIES_RELEASE "Geant4::G4analysis"
   IMPORTED_LOCATION_RELEASE "${_IMPORT_PREFIX}/lib/libG4processes.so"
   IMPORTED_SONAME_RELEASE "libG4processes.so"
   )
@@ -327,6 +316,17 @@ set_target_properties(Geant4::G4OpenGL PROPERTIES
 
 list(APPEND _IMPORT_CHECK_TARGETS Geant4::G4OpenGL )
 list(APPEND _IMPORT_CHECK_FILES_FOR_Geant4::G4OpenGL "${_IMPORT_PREFIX}/lib/libG4OpenGL.so" )
+
+# Import target "Geant4::G4OpenInventor" for configuration "Release"
+set_property(TARGET Geant4::G4OpenInventor APPEND PROPERTY IMPORTED_CONFIGURATIONS RELEASE)
+set_target_properties(Geant4::G4OpenInventor PROPERTIES
+  IMPORTED_LINK_DEPENDENT_LIBRARIES_RELEASE "Geant4::G4geometry;Geant4::G4materials;Geant4::G4tracking"
+  IMPORTED_LOCATION_RELEASE "${_IMPORT_PREFIX}/lib/libG4OpenInventor.so"
+  IMPORTED_SONAME_RELEASE "libG4OpenInventor.so"
+  )
+
+list(APPEND _IMPORT_CHECK_TARGETS Geant4::G4OpenInventor )
+list(APPEND _IMPORT_CHECK_FILES_FOR_Geant4::G4OpenInventor "${_IMPORT_PREFIX}/lib/libG4OpenInventor.so" )
 
 # Commands beyond this point should not need to know the version.
 set(CMAKE_IMPORT_FILE_VERSION)
