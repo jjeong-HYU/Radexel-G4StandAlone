@@ -1,0 +1,26 @@
+prefix=/home/g4test/coin3D/install
+exec_prefix=${prefix}
+bindir=/home/g4test/coin3D/install/bin
+libdir=/home/g4test/coin3D/install/lib
+includedir=/home/g4test/coin3D/install/include
+datarootdir=/home/g4test/coin3D/install/share
+datadir=/home/g4test/coin3D/install/share
+docdir=/home/g4test/coin3D/install/share/doc/Coin
+infodir=/home/g4test/coin3D/install/share/info
+mandir=/home/g4test/coin3D/install/share/man
+htmldir=${docdir}/html
+
+Name: Coin
+Description: A high-level 3D graphics toolkit, fully compatible with SGI Open Inventor 2.1
+Version: 4.0.0
+Requires:
+Conflicts:
+Libs: -L${libdir} -lCoin  
+Cflags: -I${includedir}  
+
+have_3ds_import=1
+have_vrml97=1
+have_sound=1
+have_superglu=0
+have_threads=1
+have_threadsafe=0

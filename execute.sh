@@ -9,7 +9,7 @@ Install_pre(){
     if [ $option_bashrc -eq 1 ]; then
 	    sudo apt -y update
 	    sudo apt -y upgrade
-	    sudo apt -y install gcc g++ build-essential libexpat1-dev qtbase5-dev qtchooser qt5-qmake qtbase5-dev-tools libxmu-dev
+	    sudo apt -y install gcc g++ build-essential libexpat1-dev qtbase5-dev qtchooser qt5-qmake qtbase5-dev-tools libxmu-dev libgl1-mesa-dev libboost-all-dev libxerces-c-dev zlib1g-dev libsoqt-dev
     fi
 }
 
