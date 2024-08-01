@@ -4,6 +4,7 @@ set -e
 G4_PATH_TOP=${PWD}
 
 Install_pre(){
+    sudo apt-get update
     echo "Wanna install gcc, g++, Qt5, and etc. @ apt? (1:yes / 2:no): "
     read option_bashrc
     if [ $option_bashrc -eq 1 ]; then
